@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليلك لبناء المستقبل الرقمي – تفاعلي</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>دليلك لبناء المستقبل الرقمي</h1>
+    <div id="controls">
+      <input type="text" id="search" placeholder="ابحث عن أداة...">
+      <button id="toggleDark">الوضع المظلم</button>
+      <button id="compareBtn" disabled>قارن الأدوات</button>
+    </div>
+  </header>
+  <main>
+    <section id="toolsList"></section>
+  </main>
+  <div id="compareModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>مقارنة الأدوات</h2>
+      <table id="compareTable">
+        <thead><tr><th>الأداة</th><th>السعر</th><th>الفئة</th><th>تقييم</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
