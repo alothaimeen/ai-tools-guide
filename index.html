@@ -3,29 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دليل تفاعلي لأفضل أدوات الذكاء الاصطناعي وبناء التطبيقات بدون كود. قارن الأدوات، اكتشف الأسعار، واحفظ مفضلاتك.">
+  <meta name="keywords" content="ذكاء اصطناعي, أدوات AI, بناء تطبيقات, بدون كود, no-code">
+  <meta name="author" content="AI Tools Guide">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="دليلك لبناء المستقبل الرقمي">
+  <meta property="og:description" content="دليل تفاعلي لأفضل أدوات الذكاء الاصطناعي وبناء التطبيقات بدون كود">
+  <meta property="og:url" content="https://alothaimeen.github.io/ai-tools-guide/">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="دليلك لبناء المستقبل الرقمي">
+  <meta name="twitter:description" content="دليل تفاعلي لأفضل أدوات الذكاء الاصطناعي وبناء التطبيقات بدون كود">
+  
   <title>دليلك لبناء المستقبل الرقمي – تفاعلي</title>
   <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1>دليلك لبناء المستقبل الرقمي</h1>
+    <p class="subtitle">اكتشف أفضل أدوات الذكاء الاصطناعي وبناء التطبيقات بدون كود</p>
     <div id="controls">
-      <input type="text" id="search" placeholder="ابحث عن أداة...">
-      <button id="toggleDark">الوضع المظلم</button>
-      <button id="compareBtn" disabled>قارن الأدوات</button>
+      <div class="control-group">
+        <input type="text" id="search" placeholder="ابحث عن أداة..." aria-label="بحث عن أداة">
+        <select id="categoryFilter" aria-label="تصفية حسب الفئة">
+          <option value="">جميع الفئات</option>
+          <option value="بناء ويب">بناء ويب</option>
+          <option value="تطبيقات">تطبيقات</option>
+          <option value="أتمتة">أتمتة</option>
+        </select>
+        <select id="sortBy" aria-label="ترتيب حسب">
+          <option value="name">الاسم</option>
+          <option value="price-asc">السعر: من الأقل للأعلى</option>
+          <option value="price-desc">السعر: من الأعلى للأقل</option>
+          <option value="rating">التقييم</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button id="toggleDark" aria-label="تبديل الوضع المظلم">🌙 الوضع المظلم</button>
+        <button id="compareBtn" disabled aria-label="مقارنة الأدوات المحددة">⚖️ قارن الأدوات (<span id="compareCount">0</span>)</button>
+        <button id="exportFavorites" aria-label="تصدير المفضلة">💾 تصدير المفضلة</button>
+      </div>
     </div>
   </header>
   <main>
-    <section id="toolsList"></section>
+    <div id="stats" class="stats-bar">
+      <span>عدد الأدوات: <strong id="toolCount">0</strong></span>
+      <span>المفضلة: <strong id="favCount">0</strong></span>
+    </div>
+    <section id="toolsList" role="list" aria-label="قائمة الأدوات"></section>
   </main>
-  <div id="compareModal" class="modal">
+  <div id="compareModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>مقارنة الأدوات</h2>
-      <table id="compareTable">
-        <thead><tr><th>الأداة</th><th>السعر</th><th>الفئة</th><th>تقييم</th></tr></thead>
-        <tbody></tbody>
-      </table>
+      <button class="close" aria-label="إغلاق">&times;</button>
+      <h2 id="modalTitle">مقارنة الأدوات</h2>
+      <div class="table-wrapper">
+        <table id="compareTable">
+          <thead><tr><th>الأداة</th><th>السعر</th><th>الفئة</th><th>الذكاء الاصطناعي</th><th>تقييمك</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button id="clearCompare" class="secondary-btn">مسح المقارنة</button>
     </div>
   </div>
   <script src="script.js"></script>
